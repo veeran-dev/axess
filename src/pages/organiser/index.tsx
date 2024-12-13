@@ -6,7 +6,7 @@ import HorizontalCardEvent, {
   HorizontalCardProps,
 } from '@/components/card/HorizontalCardEvent';
 
-const Organiser = () => {
+const organizer = () => {
   return (
     <div>
       <div className="mx-auto max-w-7xl py-4">
@@ -34,4 +34,4 @@ const Organiser = () => {
   );
 };
 
-export default withAdminLayout(Organiser);
+export default withAdminLayout(organizer);

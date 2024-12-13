@@ -3,6 +3,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import Footer from './footer'
+import Link from 'next/link'
 
 const user = {
   name: 'Tom Cook',
@@ -15,12 +17,12 @@ interface navigation {
 }
 
 let publicNavigation = [
-  { name: 'Explore', href: '/organiser', current: true },
-  { name: 'Create Event', href: '/events', current: false },
+  { name: 'Explore', href: '/explore', current: true },
+  { name: 'Create Event', href: '/signup/organizer', current: false },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Tickets', href: '#' },
+  { name: 'Your Profile', href: '/profile' },
+  { name: 'Tickets', href: '/profile' },
   { name: 'Sign out', href: '#' },
 ]
 
@@ -32,7 +34,7 @@ export default function PublicLayout({children}:{children:React.ReactNode}) {
   const router = useRouter()
   const [navigation, setNavigation] = useState<navigation[]>([])
   const isLoggedIn = true;
-
+  const isEventPage = router.pathname === '/event/[id]' || router.asPath.startsWith('/event/');
   useEffect(()=>{
     const currentUrl = router.pathname;
     console.log("currentUrl...",currentUrl)
@@ -48,11 +50,12 @@ export default function PublicLayout({children}:{children:React.ReactNode}) {
 
   return (
     <>
-      <div className="min-h-full bg-[#f3f3f3]">
+      <div className="min-h-full bg-[#000]">
         <Disclosure as="nav" className="border-b border-gray-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-12">
                 <div className="flex shrink-0 items-center">
+                  <Link href={'/'}>
                   <Image
                     alt="Axess"
                     src={'/axess_logo.webp'}
@@ -67,6 +70,7 @@ export default function PublicLayout({children}:{children:React.ReactNode}) {
                     src={'/axess_logo.webp'}
                     className="hidden h-8 w-auto lg:block"
                   />
+                  </Link>
                 </div>
               <div className=" hidden sm:-my-px sm:ml-auto sm:flex items-center sm:space-x-8">
                   {navigation.map((item) => (
@@ -114,7 +118,7 @@ export default function PublicLayout({children}:{children:React.ReactNode}) {
                       <MenuItem key={item.name}>
                         <a
                           href={item.href}
-                          className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none"
+                          className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none z-100"
                         >
                           {item.name}
                         </a>
@@ -201,9 +205,21 @@ export default function PublicLayout({children}:{children:React.ReactNode}) {
           </DisclosurePanel>
         </Disclosure>
 
-        <div className=" max-w-[1080px] bg-[#f4f4f4] m-2 mx-auto rounded-lg">
+        <div className=" bg-[#000] m-2 mx-auto rounded-lg">
           <main>
-            <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">{children}</div>
+            <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8 relative">
+              {isEventPage &&
+                <div
+                  className="capitalize my-2 rounded-lg flex items-center justify-center px-4 py-[9px] bg-gradient-to-r from-[#C446FF] via-[#7801FB] to-[#3E0082] leading-[133%] font-medium text-[#E7E8EA] text-left relative z-[119] text-[16px] border-b-2 border-[#0C172F] h-[48px]"
+                >
+                  Use code #WELCOME500 to get ₹500/- Off on your first ticket
+                </div>
+              }
+              {children}
+              <div className='mt-8'>
+                <Footer />
+              </div>
+            </div>
           </main>
         </div>
       </div>

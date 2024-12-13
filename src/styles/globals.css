@@ -22,3 +22,17 @@ body {
   background: var(--background);
   font-family: 'Barlow', sans-serif;
 }
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield; /* For Firefox */
+  appearance: textfield;
+}
+.clip-custom {
+  clip-path: path('M 0 0 H 100% V 100% H 50% Q 45% 100% 40% 95% L 0 95% Z');
+}

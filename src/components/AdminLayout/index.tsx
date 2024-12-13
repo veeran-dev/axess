@@ -14,8 +14,8 @@ interface navigation {
   current: boolean;
 }
 
-let organiserNavigation = [
-  { name: 'Dashboard', href: '/organiser', current: true },
+let organizerNavigation = [
+  { name: 'Dashboard', href: '/organizer', current: true },
   { name: 'Events', href: '/events', current: false },
   { name: 'Refunds', href: '/refunds', current: false },
   { name: 'Coupons', href: '/coupons', current: false },
@@ -39,11 +39,11 @@ export default function AdminLayout({children}:{children:React.ReactNode}) {
     const currentUrl = router.pathname;
     console.log("currentUrl...",currentUrl)
     // Update the navigation array based on the current URL
-    organiserNavigation = organiserNavigation.map((item) => ({
+    organizerNavigation = organizerNavigation.map((item) => ({
       ...item,
       current: currentUrl === item.href,
     }));
-    setNavigation(organiserNavigation)
+    setNavigation(organizerNavigation)
     console.log('navigation...',navigation)
   },[router])
 

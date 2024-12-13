@@ -4,7 +4,7 @@ import Header from "../header"
 import { COLORS, pieChartData } from "./constant";
 
 
-const OrganiserChart = () =>{
+const OrganizerChart = () =>{
     return(
         <div className="">
             <Header title={"Top Organizer"} />
@@ -34,4 +34,4 @@ const OrganiserChart = () =>{
     )
 }
 
-export default memo(OrganiserChart)
+export default memo(OrganizerChart)

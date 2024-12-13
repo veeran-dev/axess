@@ -10,7 +10,7 @@ const RevenueChart = () =>{
             <div className="flex flex-row flex-wrap justify-between">
                 <Header title={"Revenue"} />
                 <div className=" flex flex-row justify-between items-center gap-4">
-                    <div className="cursor-pointer font-semibold">Organiser</div>
+                    <div className="cursor-pointer font-semibold">organizer</div>
                     <div className="cursor-pointer">Event</div>
                     <div className="cursor-pointer">Monthly</div>
                     <div className="cursor-pointer flex flex-row justify-center items-center"><ArrowDownTrayIcon className="text-gray-800 size-6 pr-2"/>Download</div>

@@ -8,12 +8,11 @@ const HeroSection = ({ theme = "light" }) => {
   const backgroundStyle = isDark
     ? "bg-[linear-gradient(#48556354,#29323c00)] text-white border border-none"
     : "bg-white text-gray-800";
-  const style1 = isDark ? "bg-transparent": "bg-white";
 
   return (
     <div className="rounded-2xl overflow-hidden">
       <div className="bg-black rounded-t-2xl">
-        <div className={`sm:pt-32 pt-16 pb-16 rounded-l-2xl rounded-t-2xl relative ${backgroundStyle}`}>
+        <div className={`sm:pt-32 pt-16 pb-16 rounded-2xl relative ${backgroundStyle}`}>
           <div className="container mx-auto flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 text-center lg:text-left sm:py-8 sm:pl-8 sm:p-0 p-4">
               <div>
@@ -48,6 +47,22 @@ const HeroSection = ({ theme = "light" }) => {
                   </a>
                 ))}
               </div>
+              <div
+                className={`mt-16 flex flex-row justify-between text-gray-400 max-w-md`}
+              >
+                <div className="flex flex-col">
+                  <div className="text-2xl font-bold">1000 +</div>
+                  <div>Events</div>
+                </div>
+                <div className="flex flex-col">
+                  <div className="text-2xl font-bold">15000 +</div>
+                  <div>Users</div>
+                </div>
+                <div className="flex flex-col">
+                  <div className="text-2xl font-bold">112</div>
+                  <div>Organizers</div>
+                </div>
+              </div>
             </div>
             <div className="md:w-1/2 w-full mt-8 lg:mt-0 relative">
               <div className="w-full h-96 relative">
@@ -57,36 +72,11 @@ const HeroSection = ({ theme = "light" }) => {
                   layout="fill"
                   objectFit="contain"
                   priority
-                  className="lg:scale-150 scale-100"
+                  className="lg:scale-125 scale-100"
                 />
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="flex w-full rounded-b-3xl bg-black">
-        <div className={`sm:w-1/2 w-full rounded-bl-3xl ${backgroundStyle}`}>
-          <div
-            className={`lg:px-12 px-4 py-8 rounded-bl-3xl rounded-tr-[48px] flex flex-row justify-between ${
-              isDark ? "bg-gray-900 text-gray-400" : "bg-black text-gray-300"
-            }`}
-          >
-            <div className="flex flex-col">
-              <div className="text-2xl font-bold">1000 +</div>
-              <div>Events</div>
-            </div>
-            <div className="flex flex-col">
-              <div className="text-2xl font-bold">15000 +</div>
-              <div>Users</div>
-            </div>
-            <div className="flex flex-col">
-              <div className="text-2xl font-bold">112</div>
-              <div>Organizers</div>
-            </div>
-          </div>
-        </div>
-        <div className="hidden sm:block w-1/2 bg-black rounded-b-3xl">
-          <div className={`w-full h-[120px] rounded-b-3xl flex-grow ${style1}`}></div>
         </div>
       </div>
     </div>

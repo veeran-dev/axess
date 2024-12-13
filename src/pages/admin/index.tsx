@@ -1,6 +1,6 @@
 import Analytics from "@/components/dashboard/analytics"
 import ApprovalList from "@/components/dashboard/ApprovalList"
-import OrganiserChart from "@/components/dashboard/organiserChart"
+import OrganizerChart from "@/components/dashboard/organiserChart"
 import RefundsList from "@/components/dashboard/RefundsList"
 import RevenueChart from "@/components/dashboard/revenueChart"
 import TopCities from "@/components/dashboard/topCities"
@@ -19,7 +19,7 @@ const Admin =()=>{
                     <RevenueChart/>
                 </div>
                 <div className="bg-white rounded-md border-gray-200 border-[1px] px-4 pb-4 ">
-                    <OrganiserChart />
+                    <OrganizerChart />
                     <TopCities/>
                 </div>
             </div>
